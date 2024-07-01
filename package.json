@@ -1,0 +1,14 @@
+{
+  "name": "hsr-login",
+  "version": "1.0.0",
+  "description": "Honkai: Star Rail automatic daily check-in",
+  "private": true,
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "sglkc",
+  "license": "MIT"
+}
