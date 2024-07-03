@@ -3,6 +3,7 @@ name: Daily Check In
 on:
   schedule:
     - cron: "0 18 * * *" # scheduled at 06:00 (UTC+8) everyday
+  workflow_dispatch:
 
 jobs:
   check-in:
