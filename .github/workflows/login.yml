@@ -1,23 +1,22 @@
 name: Daily Check In
 
 on:
-   schedule:
-      - cron: "0 18 * * *" # scheduled at 06:00 (UTC+8) everyday
-   workflow_dispatch:
+  schedule:
+    - cron: "0 18 * * *" # scheduled at 06:00 (UTC+8) everyday
 
 jobs:
-   check-in:
-      runs-on: ubuntu-latest
-      steps:
-         - name: Clone Repo
-           uses: actions/checkout@v4
+  check-in:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repo
+        uses: actions/checkout@v4
 
-         - name: Setup Node
-           uses: actions/setup-node@v4
-           with:
-              node-version: "20"
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
 
-         - name: Check In
-           run: node index.js
-           env:
-              COOKIE: ${{ secrets.COOKIE }}
+      - name: Check In
+        run: node index.js ${{ secrets.GAMES }}
+        env:
+          COOKIE: ${{ secrets.COOKIE }}
