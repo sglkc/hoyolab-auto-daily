@@ -18,6 +18,6 @@ jobs:
           node-version: "20"
 
       - name: Check In
-        run: node index.js ${{ secrets.GAMES }}
+        run: node index.js ${{ vars.GAMES }}
         env:
           COOKIE: ${{ secrets.COOKIE }}

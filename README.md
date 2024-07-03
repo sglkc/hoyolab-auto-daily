@@ -1,4 +1,4 @@
-# Honkai: Star Rail Daily Check Inator
+# Hoyolab Auto Daily Check In
 
 Today's check in status:
 [![If you see this text, chances are the automation hasn't run. Do your setup below!](../../actions/workflows/login.yml/badge.svg)](../../actions/workflows/login.yml)
@@ -60,23 +60,27 @@ You have to check in manually first to get your cookie, follow these steps (clic
    </details>
 
 5. <details>
-   <summary>Insert <code>COOKIE</code> on Name field</summary>
+   <summary>
+      Insert name with <code>COOKIE</code> and secret with
+      <a href="#getting-your-cookie">your cookie</a>, then click Add secret
+   </summary>
    <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/9a450ba4-a155-4a0e-8a48-d730a3be5c73" />
    </details>
 
-6. Copy your [cookie](#getting-your-cookie) on Secret field and click Add secret
-
-7. Now add another repository secret with the name `GAMES`
-
-8. <details>
-   <summary>
-      Insert game codes you want to check in, separated by a space like the example screenshot.<br/>
-      Supported values are: <code>gi</code>, <code>hsr</code>, <code>hi3</code>, <code>tot</code>
-   </summary>
-   <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/771641a2-ea10-4b97-82e0-7904ac6ab6fe" />
+6. <details>
+   <summary>Now for the games, go to Variables and click New repository variable</summary>
+   <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/5c6c226a-141c-41c2-82f5-8254b1741196" />
    </details>
 
-9. <details>
+7. <details>
+   <summary>
+      Insert name with <code>GAMES</code> and value with the game codes you want to check in, separated by space like the example screenshot.<br/>
+      Supported values are: <code>gi</code>, <code>hsr</code>, <code>hi3</code>, <code>tot</code>
+   </summary>
+   <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/01cd1a4b-16ae-4f3c-ba3e-cd3f913e44fa" />
+   </details>
+
+8. <details>
    <summary>
       For the first day, you have to run this manually.
       Simply go <a href="../../actions/workflows/login.yml">HERE</a> and click on Run workflow
@@ -84,12 +88,12 @@ You have to check in manually first to get your cookie, follow these steps (clic
    <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/ea1e48d2-a069-4db6-bdcd-86eecae8d81d" />
    </details>
 
-10. <details>
-    <summary>Wait for 10-20 secs, refresh, and see if it ran successfully. You should now see the check in status on top of README.</summary>
+9. <details>
+    <summary>Refresh the page, wait for 15-25 secs, and see if it ran successfully. You should now see the check in status on top of README.</summary>
     <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/5c8520ee-a8b7-4c66-bb1b-ef945c499112" />
     </details>
 
-11. You're set! Hop on your game the next day and see if you got the rewards
+10. You're set! Hop on your game the next day and see if you got the rewards
 
 ## FAQ
 
@@ -115,3 +119,4 @@ You have to check in manually first to get your cookie, follow these steps (clic
 5. Can I make my own script?
 
    Feel free to modify, this repository is [MIT licensed](LICENSE). BUT it's far better if you contribute here!
+
