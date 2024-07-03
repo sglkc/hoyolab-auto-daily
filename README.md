@@ -1,7 +1,7 @@
 # Honkai: Star Rail Daily Check Inator
 
 Today's check in status:
-[![Daily Check In](../../actions/workflows/login.yml/badge.svg)](../../actions/workflows/login.yml)
+[![If you see this text, chances are the automation hasn't run. Do your setup below!](../../actions/workflows/login.yml/badge.svg)](../../actions/workflows/login.yml)
 
 ## Table of Contents
 
@@ -60,15 +60,36 @@ You have to check in manually first to get your cookie, follow these steps (clic
    </details>
    
 5. <details>
-   <summary>Insert COOKIE on Name field</summary>
+   <summary>Insert <code>COOKIE</code> on Name field</summary>
    <img src="https://github.com/sglkc/hsr-login/assets/31957516/9a450ba4-a155-4a0e-8a48-d730a3be5c73" />
    </details>
    
-6. Copy your [cookie](#getting-your-cookie) on Secret field
-7. Click on Add secret
-8. You're set! Hop on your game the next day and see if you got the rewards
+6. Copy your [cookie](#getting-your-cookie) on Secret field and click Add secret
 
-You can see for your check in status everyday on top of this README file like that.
+7. Now add another repository secret with the name `GAMES`
+
+8. <details>
+   <summary>
+      Insert game codes you want to check in, separated by a space like the example screenshot.<br/>
+      Supported values are: <code>gi</code>, <code>hsr</code>, <code>hi3</code>, <code>tot</code>
+   </summary>
+   <img src="https://github.com/sglkc/hsr-login/assets/31957516/771641a2-ea10-4b97-82e0-7904ac6ab6fe" />
+   </details>
+
+9. <details>
+   <summary>
+      For the first day, you have to run this manually.
+      Simply go <a href="../../actions/workflows/login.yml">HERE</a> and click on Run workflow
+   </summary>
+   <img src="https://github.com/sglkc/hsr-login/assets/31957516/ea1e48d2-a069-4db6-bdcd-86eecae8d81d" />
+   </details>
+
+10. <details>
+    <summary>Wait for 10-20 secs, refresh, and see if it ran successfully. You should now see the check in status on top of README.</summary>
+    <img src="https://github.com/sglkc/hsr-login/assets/31957516/5c8520ee-a8b7-4c66-bb1b-ef945c499112" />
+    </details>
+
+11. You're set! Hop on your game the next day and see if you got the rewards
 
 ## FAQ
 
@@ -84,6 +105,13 @@ You can see for your check in status everyday on top of this README file like th
    
    To the [Issues page](https://github.com/sglkc/hsr-login/issues)
 
-4. Can I make my own script?
+4. How to update my fork?
+
+   <details>
+   <summary>Go to your repository and click Sync fork</summary>
+   <img src="https://github.com/sglkc/hsr-login/assets/31957516/08c10262-8a97-433b-b499-143cc116184d" />
+   </details>
    
-   Feel free to modify, this repository is [MIT licensed](LICENSE)
+5. Can I make my own script?
+   
+   Feel free to modify, this repository is [MIT licensed](LICENSE). BUT it's far better if you contribute here!
