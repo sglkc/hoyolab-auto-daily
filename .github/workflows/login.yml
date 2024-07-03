@@ -21,3 +21,4 @@ jobs:
         run: node index.js ${{ vars.GAMES }}
         env:
           COOKIE: ${{ secrets.COOKIE }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}

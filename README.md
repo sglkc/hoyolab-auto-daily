@@ -7,6 +7,7 @@ Today's check in status:
 
 - [Getting your cookie](#getting-your-cookie)
 - [Usage](#usage)
+- [Discord Webhook](#discord-webhook)
 - [FAQ](#faq)
 
 ## Getting your cookie
@@ -82,7 +83,7 @@ You have to check in manually first to get your cookie, follow these steps (clic
 
 8. <details>
    <summary>
-      For the first day, you have to run this manually.
+      For the first day, you have to trigger this manually.
       Simply go <a href="../../actions/workflows/login.yml">HERE</a> and click on Run workflow
    </summary>
    <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/ea1e48d2-a069-4db6-bdcd-86eecae8d81d" />
@@ -94,6 +95,32 @@ You have to check in manually first to get your cookie, follow these steps (clic
     </details>
 
 10. You're set! Hop on your game the next day and see if you got the rewards
+
+## Discord Webhook
+
+You may use Discord webhook to send notifications to your channel!
+
+1. <details>
+   <summary>Go to channel settings</summary>
+   <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/80f3b2f1-cc55-4316-9153-3fc5026b7da8" />
+   </details>
+
+2. <details>
+   <summary>Go to Integrations and click Create Webhook</summary>
+   <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/b4d0c07d-35a5-4382-99de-584c70c4d730" />
+   </details>
+
+3. <details>
+   <summary>You can edit the name and picture freely, then Copy Webhook URL</summary>
+   <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/3df5b59c-edc9-4884-897c-9159e243598e" />
+   </details>
+
+4. <details>
+   <summary>Create a new repository <em>variable</em> named <code>DISCORD_WEBHOOK</code> with value of the webhook URL</summary>
+   <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/15b029ff-906d-472c-b356-ae9efed4477b" />
+   </details>
+
+5. You may trigger the check in manually and see if the messages got sent
 
 ## FAQ
 
