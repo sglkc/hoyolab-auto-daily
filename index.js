@@ -5,6 +5,7 @@ const cookie = process.env.COOKIE
 const discordWebhook = process.env.DISCORD_WEBHOOK
 const messages = []
 const endpoints = {
+  zzz: 'https://sg-act-nap-api.hoyolab.com/event/luna/zzz/os/sign?act_id=e202406031448091',
   gi:  'https://sg-hk4e-api.hoyolab.com/event/sol/sign?act_id=e202102251931481',
   hsr: 'https://sg-public-api.hoyolab.com/event/luna/os/sign?act_id=e202303301540311',
   hi3: 'https://sg-public-api.hoyolab.com/event/mani/sign?act_id=e202110291205111',
@@ -16,9 +17,9 @@ let hasErrors = false
 async function main() {
   if (!args.length) {
     log('error', 'Argument is empty!')
-    log('info', 'Usage:   node index.js [gi] [hsr] [hi3] [tot]')
+    log('info', 'Usage:   node index.js [zzz] [gi] [hsr] [hi3] [tot]')
     log('info', 'Example: node index.js hsr')
-    log('info', '         node index.js gi hsr hi3 tot')
+    log('info', '         node index.js zzz gi hsr')
     throw new Error('No argument passed.')
   }
 
@@ -33,7 +34,7 @@ async function main() {
     log('debug', `\n----- CHECKING IN FOR ${game} -----`)
 
     if (!(game in endpoints)) {
-      log('error', `Game ${arg} is invalid. Available games are: gi, hsr, hi3, and tot`)
+      log('error', `Game ${arg} is invalid. Available games are: zzz, gi, hsr, hi3, and tot`)
       continue
     }
 
