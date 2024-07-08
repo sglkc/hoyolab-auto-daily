@@ -76,7 +76,7 @@ You have to check in manually first to get your cookie, follow these steps (clic
 7. <details>
    <summary>
       Insert name with <code>GAMES</code> and value with the game codes you want to check in, separated by space like the example screenshot.<br/>
-      Supported values are: <code>gi</code>, <code>hsr</code>, <code>hi3</code>, <code>tot</code>
+      Supported values are: <code>zzz</code>, <code>gi</code>, <code>hsr</code>, <code>hi3</code>, <code>tot</code>
    </summary>
    <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/01cd1a4b-16ae-4f3c-ba3e-cd3f913e44fa" />
    </details>
