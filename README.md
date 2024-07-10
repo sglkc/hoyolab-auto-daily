@@ -12,7 +12,10 @@ Repository version:
 - [Usage](#usage)
 - [Discord Webhook](#discord-webhook)
 - [FAQ](#faq)
-  - [Error Not Logged In](#error-not-logged-in)
+  - [Is this safe?](#is-this-safe)
+  - [How to update my (fork) repository version?](#how-to-update-my-fork-repository-version)
+  - [Error not logged in](#error-not-logged-in)
+  - [I have other issues](#i-have-other-issues)
 
 ## Getting your cookie
 
@@ -128,33 +131,25 @@ You may use Discord webhook to send notifications to your channel!
 
 ## FAQ
 
-1. Privacy
+### Is this safe?
 
-   This repository does NOT have any tracking nor anything sus, you can read the code yourself. Also keep your cookie safe!
+There should be no issues, automated check-in exists for years and there hasn't been any reports about hoyo doing anything against it
 
-2. Is this safe?
+### How to update my (fork) repository version?
 
-   There should be no issues, there hasn't been any reports about hoyo doing anything against check-in automation
+<details>
+<summary>Go to your repository and click Sync fork</summary>
+<img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/08c10262-8a97-433b-b499-143cc116184d" />
+</details>
 
-3. I have an issue
-
-   To the [Issues page](https://github.com/sglkc/hoyolab-auto-daily/issues)
-
-4. How to update my fork?
-
-   <details>
-   <summary>Go to your repository and click Sync fork</summary>
-   <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/08c10262-8a97-433b-b499-143cc116184d" />
-   </details>
-
-5. Can I make my own script?
-
-   Feel free to modify, this repository is [MIT licensed](LICENSE). BUT it's far better if you contribute here!
-
-### Error Not Logged In
+### Error not logged in
 
 This is a common issue even if you seem to get the cookies right. Here's another method to get your cookies:
 
 https://gist.github.com/torikushiii/59eff33fc8ea89dbc0b2e7652db9d3fd
 
 Just copy everything and paste to the COOKIE secret
+
+### I have other issues
+
+To the [Issues page](https://github.com/sglkc/hoyolab-auto-daily/issues)
