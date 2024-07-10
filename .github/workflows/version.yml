@@ -1,4 +1,4 @@
-name: Version Check
+name: Check latest version
 
 on:
   schedule:
