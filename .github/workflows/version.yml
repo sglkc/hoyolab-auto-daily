@@ -1,4 +1,4 @@
-name: Check latest version
+name: Latest version
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-in:
+  check-version:
     runs-on: ubuntu-latest
     steps:
       - name: Clone Repo
