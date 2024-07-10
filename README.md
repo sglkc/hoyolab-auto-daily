@@ -43,10 +43,12 @@ You have to check in manually first to get your cookie, follow these steps (clic
    <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/3ce70d90-6d5d-4353-ab35-8476c44124a1" />
    </details>
 
-7. <details>
-   <summary>Write <code>ltuid_v2=(PASTE ltuid_v2); ltoken_v2=(PASTE ltoken_v2)</code> like the screenshot.</summary>
+7. <details open>
+   <summary>Write <code>ltuid_v2=PASTE_ltuid_v2; ltoken_v2=PASTE_ltoken_v2</code> like the screenshot.</summary>
 
    I write the line on the browser url to make it easier. Pay attention, use semicolon (;) and not colon (:)
+
+   It should look like this: `ltuid_v2=249806310; ltoken_v2=v2_CAISDG...`
 
    <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/4309fcd9-3d6b-43f3-96f2-d8276bea6280" />
    </details>
