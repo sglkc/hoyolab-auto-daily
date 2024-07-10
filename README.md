@@ -9,6 +9,7 @@ Today's check in status:
 - [Usage](#usage)
 - [Discord Webhook](#discord-webhook)
 - [FAQ](#faq)
+  - [Error Not Logged In](#error-not-logged-in)
 
 ## Getting your cookie
 
@@ -147,3 +148,10 @@ You may use Discord webhook to send notifications to your channel!
 
    Feel free to modify, this repository is [MIT licensed](LICENSE). BUT it's far better if you contribute here!
 
+### Error Not Logged In
+
+This is a common issue even if you seem to get the cookies right. Here's another method to get your cookies:
+
+https://gist.github.com/torikushiii/59eff33fc8ea89dbc0b2e7652db9d3fd
+
+Just copy everything and paste to the COOKIE secret
