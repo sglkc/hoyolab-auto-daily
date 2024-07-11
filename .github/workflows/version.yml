@@ -27,15 +27,20 @@ jobs:
           if [ "$(printf '%s\n' "$REMOTE_VERSION" "$LOCAL_VERSION" | sort -V | head -n1)" != "$REMOTE_VERSION" ]; then
             echo "Repository version is outdated. Do sync your fork!"
             echo "STATUS=outdated" >> $GITHUB_ENV
+            exit 1
           fi
 
       - name: Send to Discord Webhook
+        if: env.STATUS == 'outdated'
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
-          if [ ! -z "$DISCORD_WEBHOOK" -a "$STATUS" == "outdated"]; then
-            curl -H "Content-Type: application/json" \
-                 -d '{"content": "(INFO) New version released. Your repository is outdated."}' \
-                 $DISCORD_WEBHOOK
+          if [ -z "$DISCORD_WEBHOOK" ]; then
+            echo "Discord webhook not set."
+            exit 0
           fi
-          exit 1
+
+          curl -H "Content-Type: application/json" \
+               -d '{"content": "(INFO) New version released. Your repository is outdated."}' \
+               $DISCORD_WEBHOOK
+          echo "Sent to Discord"
