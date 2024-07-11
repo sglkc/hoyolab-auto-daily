@@ -34,4 +34,6 @@ jobs:
                    -d '{"content": "(INFO) New version released. Your repository is outdated."}' \
                    $DISCORD_WEBHOOK
             fi
+
+            exit 1
           fi
