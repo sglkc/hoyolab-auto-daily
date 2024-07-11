@@ -14,7 +14,8 @@ jobs:
 
       - name: Fetch package.json from original repo
         run: |
-          curl -o remote-package.json https://raw.githubusercontent.com/sglkc/hoyolab-auto-daily/master/package.json
+          curl -o remote-package.json \
+               https://raw.githubusercontent.com/sglkc/hoyolab-auto-daily/master/package.json
 
       - name: Compare versions
         run: |
@@ -24,8 +25,17 @@ jobs:
           echo "Remote version: $REMOTE_VERSION"
 
           if [ "$(printf '%s\n' "$REMOTE_VERSION" "$LOCAL_VERSION" | sort -V | head -n1)" != "$REMOTE_VERSION" ]; then
-            echo "Local version is lower than remote version. Sync your repo!"
-            exit 1
-          else
-            echo "Local version is up to date."
+            echo "Repository version is outdated. Do sync your fork!"
+            echo "STATUS=outdated" >> $GITHUB_ENV
           fi
+
+      - name: Send to Discord Webhook
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ ! -z "$DISCORD_WEBHOOK" -a "$STATUS" == "outdated"]; then
+            curl -H "Content-Type: application/json" \
+                 -d '{"content": "(INFO) New version released. Your repository is outdated."}' \
+                 $DISCORD_WEBHOOK
+          fi
+          exit 1
