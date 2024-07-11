@@ -18,6 +18,8 @@ jobs:
                https://raw.githubusercontent.com/sglkc/hoyolab-auto-daily/master/package.json
 
       - name: Compare versions
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
           LOCAL_VERSION=$(jq -r .version package.json)
           REMOTE_VERSION=$(jq -r .version remote-package.json)
@@ -26,21 +28,10 @@ jobs:
 
           if [ "$(printf '%s\n' "$REMOTE_VERSION" "$LOCAL_VERSION" | sort -V | head -n1)" != "$REMOTE_VERSION" ]; then
             echo "Repository version is outdated. Do sync your fork!"
-            echo "STATUS=outdated" >> $GITHUB_ENV
-            exit 1
-          fi
 
-      - name: Send to Discord Webhook
-        if: env.STATUS == 'outdated'
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        run: |
-          if [ -z "$DISCORD_WEBHOOK" ]; then
-            echo "Discord webhook not set."
-            exit 0
+            if [ ! -z "$DISCORD_WEBHOOK" ]; then
+              curl -H "Content-Type: application/json" \
+                   -d '{"content": "(INFO) New version released. Your repository is outdated."}' \
+                   $DISCORD_WEBHOOK
+            fi
           fi
-
-          curl -H "Content-Type: application/json" \
-               -d '{"content": "(INFO) New version released. Your repository is outdated."}' \
-               $DISCORD_WEBHOOK
-          echo "Sent to Discord"
