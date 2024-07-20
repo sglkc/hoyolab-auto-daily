@@ -4,6 +4,7 @@ const args = process.argv.slice(2)
 const cookie = process.env.COOKIE
 const discordWebhook = process.env.DISCORD_WEBHOOK
 const discordUser = process.env.DISCORD_USER
+const msgDelimiter = ':'
 const messages = []
 const endpoints = {
   zzz: 'https://sg-act-nap-api.hoyolab.com/event/luna/zzz/os/sign?act_id=e202406031448091',
@@ -128,9 +129,9 @@ function log(type, ...data) {
     case 'error': hasErrors = true
   }
 
-  // check if it's a game specific message, and set it as uppercase for clarity 
+  // check if it's a game specific message, and set it as uppercase for clarity, and add delimiter
   if(data[0] in endpoints) {
-    data[0] = data[0].toUpperCase()
+    data[0] = data[0].toUpperCase() + msgDelimiter
   }
 
   // serialize data and add to messages
