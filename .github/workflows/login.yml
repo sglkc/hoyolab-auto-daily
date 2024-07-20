@@ -22,3 +22,4 @@ jobs:
         env:
           COOKIE: ${{ secrets.COOKIE }}
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_USER: ${{ secrets.DISCORD_USER }}
