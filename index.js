@@ -3,14 +3,15 @@
 const args = process.argv.slice(2)
 const cookie = process.env.COOKIE
 const discordWebhook = process.env.DISCORD_WEBHOOK
+const discordUser = process.env.DISCORD_USER
 const messages = []
-const endpoints = {
-  zzz: 'https://sg-act-nap-api.hoyolab.com/event/luna/zzz/os/sign?act_id=e202406031448091',
-  gi:  'https://sg-hk4e-api.hoyolab.com/event/sol/sign?act_id=e202102251931481',
-  hsr: 'https://sg-public-api.hoyolab.com/event/luna/os/sign?act_id=e202303301540311',
-  hi3: 'https://sg-public-api.hoyolab.com/event/mani/sign?act_id=e202110291205111',
-  tot: 'https://sg-public-api.hoyolab.com/event/luna/os/sign?act_id=e202202281857121',
-}
+const endpoints = new Map([
+  ['zzz', 'https://sg-act-nap-api.hoyolab.com/event/luna/zzz/os/sign?act_id=e202406031448091'],
+  ['gi',  'https://sg-hk4e-api.hoyolab.com/event/sol/sign?act_id=e202102251931481'],
+  ['hsr', 'https://sg-public-api.hoyolab.com/event/luna/os/sign?act_id=e202303301540311'],
+  ['hi3', 'https://sg-public-api.hoyolab.com/event/mani/sign?act_id=e202110291205111'],
+  ['tot', 'https://sg-public-api.hoyolab.com/event/luna/os/sign?act_id=e202202281857121'],
+])
 
 let hasErrors = false
 
@@ -83,7 +84,7 @@ async function main() {
 
     // success responses
     if (code in successCodes) {
-      log('info', `${game}: ${successCodes[code]}`)
+      log('info', game, `${successCodes[code]}`)
       continue
     }
 
@@ -93,15 +94,15 @@ async function main() {
       '-10002': 'Error not found. You haven\'t played this game'
     }
 
-    log('debug', `${game}: Headers`, Object.fromEntries(res.headers))
-    log('debug', `${game}: Response`, json)
+    log('debug', game, `Headers`, Object.fromEntries(res.headers))
+    log('debug', game, `Response`, json)
 
     if (code in errorCodes) {
-      log('error', `${game}: ${errorCodes[code]}`)
+      log('error', game, `${errorCodes[code]}`)
       continue
     }
 
-    log('error', `${game}: Error undocumented, report to Issues page if this persists`)
+    log('error', game, `Error undocumented, report to Issues page if this persists`)
   }
 
   // send to discord webhook if set and valid url
@@ -127,6 +128,11 @@ function log(type, ...data) {
     case 'error': hasErrors = true
   }
 
+  // check if it's a game specific message, and set it as uppercase for clarity 
+  if(endpoints.has(data[0])) {
+    data[0] = data[0].toUpperCase()
+  }
+
   // serialize data and add to messages
   const string = data
     .map(value => {
@@ -149,6 +155,11 @@ async function discordWebhookSend() {
     log('error', 'DISCORD_WEBHOOK is not a Discord webhook URL. Must start with `https://discord.com/api/webhooks/`')
     return
   }
+  let discordMsg = ""
+  if (discordUser) {
+      discordMsg = `<@${discordUser}>\n` 
+  }
+  discordMsg += messages.map(msg => `(${msg.type.toUpperCase()}) ${msg.string}`).join('\n')
 
   const res = await fetch(discordWebhook, {
     method: 'POST',
@@ -156,7 +167,7 @@ async function discordWebhookSend() {
       'content-type': 'application/json'
     },
     body: JSON.stringify({
-      content: messages.map(msg => `(${msg.type.toUpperCase()}) ${msg.string}`).join('\n')
+      content: discordMsg
     })
   })
 
