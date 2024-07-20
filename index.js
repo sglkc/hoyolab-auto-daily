@@ -5,13 +5,13 @@ const cookie = process.env.COOKIE
 const discordWebhook = process.env.DISCORD_WEBHOOK
 const discordUser = process.env.DISCORD_USER
 const messages = []
-const endpoints = new Map([
-  ['zzz', 'https://sg-act-nap-api.hoyolab.com/event/luna/zzz/os/sign?act_id=e202406031448091'],
-  ['gi',  'https://sg-hk4e-api.hoyolab.com/event/sol/sign?act_id=e202102251931481'],
-  ['hsr', 'https://sg-public-api.hoyolab.com/event/luna/os/sign?act_id=e202303301540311'],
-  ['hi3', 'https://sg-public-api.hoyolab.com/event/mani/sign?act_id=e202110291205111'],
-  ['tot', 'https://sg-public-api.hoyolab.com/event/luna/os/sign?act_id=e202202281857121'],
-])
+const endpoints = {
+  zzz: 'https://sg-act-nap-api.hoyolab.com/event/luna/zzz/os/sign?act_id=e202406031448091',
+  gi:  'https://sg-hk4e-api.hoyolab.com/event/sol/sign?act_id=e202102251931481',
+  hsr: 'https://sg-public-api.hoyolab.com/event/luna/os/sign?act_id=e202303301540311',
+  hi3: 'https://sg-public-api.hoyolab.com/event/mani/sign?act_id=e202110291205111',
+  tot: 'https://sg-public-api.hoyolab.com/event/luna/os/sign?act_id=e202202281857121',
+}
 
 let hasErrors = false
 
@@ -129,7 +129,7 @@ function log(type, ...data) {
   }
 
   // check if it's a game specific message, and set it as uppercase for clarity 
-  if(endpoints.has(data[0])) {
+  if(data[0] in endpoints) {
     data[0] = data[0].toUpperCase()
   }
 
