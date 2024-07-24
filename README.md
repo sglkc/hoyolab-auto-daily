@@ -3,12 +3,19 @@
 Today's check in status:
 [![If you see this text, chances are the automation hasn't run. Do your setup below!](../../actions/workflows/login.yml/badge.svg)](../../actions/workflows/login.yml)
 
+Repository version:
+[![Do your setup!](../../actions/workflows/version.yml/badge.svg)](../../actions/workflows/version.yml)
+
 ## Table of Contents
 
 - [Getting your cookie](#getting-your-cookie)
 - [Usage](#usage)
 - [Discord Webhook](#discord-webhook)
 - [FAQ](#faq)
+  - [Is this safe?](#is-this-safe)
+  - [How to update my (fork) repository version?](#how-to-update-my-fork-repository-version)
+  - [Error not logged in](#error-not-logged-in)
+  - [I have other issues](#i-have-other-issues)
 
 ## Getting your cookie
 
@@ -36,10 +43,12 @@ You have to check in manually first to get your cookie, follow these steps (clic
    <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/3ce70d90-6d5d-4353-ab35-8476c44124a1" />
    </details>
 
-7. <details>
-   <summary>Write <code>ltuid_v2=(PASTE ltuid_v2); ltoken_v2=(PASTE ltoken_v2)</code> like the screenshot.</summary>
+7. <details open>
+   <summary>Write <code>ltuid_v2=PASTE_ltuid_v2; ltoken_v2=PASTE_ltoken_v2</code> like the screenshot.</summary>
 
    I write the line on the browser url to make it easier. Pay attention, use semicolon (;) and not colon (:)
+
+   It should look like this: `ltuid_v2=249806310; ltoken_v2=v2_CAISDG...`
 
    <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/4309fcd9-3d6b-43f3-96f2-d8276bea6280" />
    </details>
@@ -124,26 +133,25 @@ You may use Discord webhook to send notifications to your channel!
 
 ## FAQ
 
-1. Privacy
+### Is this safe?
 
-   This repository does NOT have any tracking nor anything sus, you can read the code yourself. Also keep your cookie safe!
+There should be no issues, automated check-in exists for years and there hasn't been any reports about hoyo doing anything against it
 
-2. Is this safe?
+### How to update my (fork) repository version?
 
-   There should be no issues, there hasn't been any reports about hoyo doing anything against check-in automation
+<details>
+<summary>Go to your repository and click Sync fork</summary>
+<img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/08c10262-8a97-433b-b499-143cc116184d" />
+</details>
 
-3. I have an issue
+### Error not logged in
 
-   To the [Issues page](https://github.com/sglkc/hoyolab-auto-daily/issues)
+This is a common issue even if you seem to get the cookies right. Here's another method to get your cookies:
 
-4. How to update my fork?
+https://gist.github.com/torikushiii/59eff33fc8ea89dbc0b2e7652db9d3fd
 
-   <details>
-   <summary>Go to your repository and click Sync fork</summary>
-   <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/08c10262-8a97-433b-b499-143cc116184d" />
-   </details>
+Just copy everything and paste to the COOKIE secret
 
-5. Can I make my own script?
+### I have other issues
 
-   Feel free to modify, this repository is [MIT licensed](LICENSE). BUT it's far better if you contribute here!
-
+To the [Issues page](https://github.com/sglkc/hoyolab-auto-daily/issues)

@@ -1,6 +1,6 @@
 {
   "name": "hoyolab-auto-daily",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Easiest, full free, and no BS Hoyolab games daily check-in using GitHub Actions",
   "private": true,
   "main": "index.js",

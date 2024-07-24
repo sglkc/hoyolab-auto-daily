@@ -75,28 +75,33 @@ async function main() {
 
     const res = await fetch(url, { method: 'POST', headers, body })
     const json = await res.json()
-
-    // success responses
-    if (json.message === 'OK' || json.retcode === 0) {
-      log('info', `${game}: Successfully checked in!`)
-      continue
+    const code = String(json.retcode)
+    const successCodes = {
+      '0': 'Successfully checked in!',
+      '-5003': 'Already checked in for today',
     }
 
-    if (json.message.includes('already') || json.retcode === -5003) {
-      log('info', `${game}: Already checked in for today`)
+    // success responses
+    if (code in successCodes) {
+      log('info', `${game}: ${successCodes[code]}`)
       continue
     }
 
     // error responses
+    const errorCodes = {
+      '-100': 'Error not logged in. Your cookie is invalid, try setting up again',
+      '-10002': 'Error not found. You haven\'t played this game'
+    }
+
     log('debug', `${game}: Headers`, Object.fromEntries(res.headers))
     log('debug', `${game}: Response`, json)
 
-    if (json.message === 'Not logged in' || json.retcode === -100) {
-      log('error', `${game}: Error not logged in`)
+    if (code in errorCodes) {
+      log('error', `${game}: ${errorCodes[code]}`)
       continue
     }
 
-    log('error', `${game}: Error undocumented, check debug headers and response`)
+    log('error', `${game}: Error undocumented, report to Issues page if this persists`)
   }
 
   // send to discord webhook if set and valid url
