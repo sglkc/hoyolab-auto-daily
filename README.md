@@ -29,8 +29,12 @@ You have to check in manually first to get your cookie, follow these steps (clic
    </details>
 
 4. <details>
-   <summary>Click on the Application tab. If not found, click the arrow.</summary>
+   <summary>For Chromium users, click on the Application tab. If not found, click on the arrow.</summary>
    <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/ea4bb233-367c-4c41-8c66-30c2bc2f3150" />
+   </details>
+   <details>
+   <summary>For Firefox/Gecko-based browsers, click on the Storage tab.</summary>
+   <img src="https://github.com/user-attachments/assets/4e12c315-9a01-4ad8-9e5f-6197328e900f" />
    </details>
 
 5. <details>
