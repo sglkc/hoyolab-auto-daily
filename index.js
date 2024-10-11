@@ -73,6 +73,8 @@ async function main() {
     headers.set('sec-fetch-site', 'same-site')
     headers.set('sec-gpc', '1')
 
+    headers.set("x-rpc-signgame": game)
+
     headers.set('user-agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36')
 
     const res = await fetch(url, { method: 'POST', headers, body })
