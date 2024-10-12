@@ -133,7 +133,13 @@ You may use Discord webhook to send notifications to your channel!
    <img src="https://github.com/sglkc/hoyolab-auto-daily/assets/31957516/15b029ff-906d-472c-b356-ae9efed4477b" />
    </details>
 
-5. You may trigger the check in manually and see if the messages got sent
+5. <details>
+   <summary>(Optional) If you want to be tagged on check in, add `DISCORD_USER` variable with your Discord ID.</summary>
+   <img src="https://github.com/user-attachments/assets/995a4b18-4c22-4dcd-9a2e-90fac74079c1" />
+   <img src="https://github.com/user-attachments/assets/52dff051-abb4-4cc0-b834-685d49a06731" />
+   </details>
+
+6. You may trigger the check in manually and see if the messages got sent
 
 ## FAQ
 
