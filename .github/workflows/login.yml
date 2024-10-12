@@ -8,6 +8,21 @@ on:
 jobs:
   check-in:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        config:
+          - cookie: ${{ secrets.COOKIE }}
+            games: ${{ vars.GAMES }}
+          - cookie: ${{ secrets.COOKIE1 }}
+            games: ${{ vars.GAMES1 }}
+          - cookie: ${{ secrets.COOKIE2 }}
+            games: ${{ vars.GAMES2 }}
+          - cookie: ${{ secrets.COOKIE3 }}
+            games: ${{ vars.GAMES3 }}
+          - cookie: ${{ secrets.COOKIE4 }}
+            games: ${{ vars.GAMES4 }}
+          - cookie: ${{ secrets.COOKIE5 }}
+            games: ${{ vars.GAMES5 }}
     steps:
       - name: Clone Repo
         uses: actions/checkout@v4
@@ -18,9 +33,9 @@ jobs:
           node-version: "20"
 
       - name: Check In
-        run: node index.js ${{ vars.GAMES }}
+        run: node index.js ${{ matrix.config.games }}
         env:
-          COOKIE: ${{ secrets.COOKIE }}
+          COOKIE: ${{ matrix.config.cookie }}
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_USER: ${{ secrets.DISCORD_USER }}
   workflow-keepalive:
