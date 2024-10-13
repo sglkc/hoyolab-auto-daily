@@ -27,7 +27,7 @@ async function run(cookie, games=latestGames) {
     log('debug', `\n----- CHECKING IN FOR ${game} -----`)
 
     if (!(game in endpoints)) {
-      log('error', `Game ${arg} is invalid. Available games are: zzz, gi, hsr, hi3, and tot`)
+      log('error', `Game ${game} is invalid. Available games are: zzz, gi, hsr, hi3, and tot`)
       continue
     }
 
