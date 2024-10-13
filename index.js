@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const cookies = process.env.COOKIE.split('\n')
-const games = process.env.GAMES.split('\n')
+const cookies = process.env.COOKIE.split('\n').map(s => s.trim())
+const games = process.env.GAMES.split('\n').map(s => s.trim())
 const discordWebhook = process.env.DISCORD_WEBHOOK
 const discordUser = process.env.DISCORD_USER
 const msgDelimiter = ':'
@@ -15,11 +15,15 @@ const endpoints = {
 }
 
 let hasErrors = false
-let latestGames
+let latestGames = []
 
-async function run(cookie, games=latestGames) {
-  latestGames = games
-  games = games.split(' ')
+async function run(cookie, games) {
+  if (!games) {
+    games = latestGames
+  } else {
+    games = games.split(' ')
+    latestGames = games
+  }
 
   for (let game of games) {
     game = game.toLowerCase()
