@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const args = process.argv.slice(2)
-const cookie = process.env.COOKIE
+const cookies = process.env.COOKIE.split('\n')
+const games = process.env.GAMES.split('\n')
 const discordWebhook = process.env.DISCORD_WEBHOOK
 const discordUser = process.env.DISCORD_USER
 const msgDelimiter = ':'
@@ -15,23 +15,14 @@ const endpoints = {
 }
 
 let hasErrors = false
+let latestGames
 
-async function main() {
-  if (!args.length) {
-    log('error', 'Argument is empty!')
-    log('info', 'Usage:   node index.js [zzz] [gi] [hsr] [hi3] [tot]')
-    log('info', 'Example: node index.js hsr')
-    log('info', '         node index.js zzz gi hsr')
-    throw new Error('No argument passed.')
-  }
+async function run(cookie, games=latestGames) {
+  latestGames = games
+  games = games.split(' ')
 
-  if (!cookie) {
-    throw new Error('COOKIE environment variable not set!')
-  }
-
-  // begin processing command arguments
-  for (const arg of args) {
-    const game = arg.toLowerCase()
+  for (let game of games) {
+    game = game.toLowerCase()
 
     log('debug', `\n----- CHECKING IN FOR ${game} -----`)
 
@@ -112,11 +103,6 @@ async function main() {
   if (discordWebhook && URL.canParse(discordWebhook)) {
     await discordWebhookSend()
   }
-
-  if (hasErrors) {
-    console.log('')
-    throw new Error('Error(s) occured.')
-  }
 }
 
 // custom log function to store messages
@@ -160,7 +146,7 @@ async function discordWebhookSend() {
   }
   let discordMsg = ""
   if (discordUser) {
-      discordMsg = `<@${discordUser}>\n` 
+      discordMsg = `<@${discordUser}>\n`
   }
   discordMsg += messages.map(msg => `(${msg.type.toUpperCase()}) ${msg.string}`).join('\n')
 
@@ -182,4 +168,20 @@ async function discordWebhookSend() {
   log('error', 'Error sending message to Discord webhook, please check URL and permissions')
 }
 
-await main()
+if (!cookies || !cookies.length) {
+  throw new Error('COOKIE environment variable not set!')
+}
+
+if (!games || !games.length) {
+  throw new Error('GAMES environment variable not set!')
+}
+
+for (const index in cookies) {
+  log('info', `-- CHECKING IN FOR ACCOUNT ${Number(index) + 1} --`)
+  await run(cookies[index], games[index])
+}
+
+if (hasErrors) {
+  console.log('')
+  throw new Error('Error(s) occured.')
+}
