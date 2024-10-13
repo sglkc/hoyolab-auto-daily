@@ -10,6 +10,7 @@ Repository version:
 
 - [Getting your cookie](#getting-your-cookie)
 - [Usage](#usage)
+- [Multiple Accounts](#multiple-accounts)
 - [Discord Webhook](#discord-webhook)
 - [FAQ](#faq)
   - [Is this safe?](#is-this-safe)
@@ -108,6 +109,16 @@ You have to check in manually first to get your cookie, follow these steps (clic
     </details>
 
 10. You're set! Hop on your game the next day and see if you got the rewards
+
+## Multiple Accounts
+
+<details>
+  <summary>To add another account, you can repeat the steps above and append the variable names with number like below.</summary>
+  <img src="https://github.com/user-attachments/assets/8255c34f-1158-4649-a04e-f9d8c8475d46" />
+  <img src="https://github.com/user-attachments/assets/5befadd9-895e-46f5-8908-429edebdb67b" />
+</details>
+
+Supported variables are `COOKIE` and `COOKIE1` until `COOKIE5`. The same is for `GAMES`. That's up to 6 accounts!
 
 ## Discord Webhook
 
