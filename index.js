@@ -102,11 +102,6 @@ async function run(cookie, games) {
 
     log('error', game, `Error undocumented, report to Issues page if this persists`)
   }
-
-  // send to discord webhook if set and valid url
-  if (discordWebhook && URL.canParse(discordWebhook)) {
-    await discordWebhookSend()
-  }
 }
 
 // custom log function to store messages
@@ -183,6 +178,10 @@ if (!games || !games.length) {
 for (const index in cookies) {
   log('info', `-- CHECKING IN FOR ACCOUNT ${Number(index) + 1} --`)
   await run(cookies[index], games[index])
+}
+
+if (discordWebhook && URL.canParse(discordWebhook)) {
+  await discordWebhookSend()
 }
 
 if (hasErrors) {
