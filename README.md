@@ -113,12 +113,10 @@ You have to check in manually first to get your cookie, follow these steps (clic
 ## Multiple Accounts
 
 <details>
-  <summary>To add another account, you can repeat the steps above and append the variable names with number like below.</summary>
-  <img src="https://github.com/user-attachments/assets/8255c34f-1158-4649-a04e-f9d8c8475d46" />
-  <img src="https://github.com/user-attachments/assets/5befadd9-895e-46f5-8908-429edebdb67b" />
+  <summary>To add other accounts, you can add another cookie and games in a new line like below.</summary>
+  <img src="https://github.com/user-attachments/assets/99fd25cd-71f6-4aae-9949-11d055fadf73" />
+  <img src="https://github.com/user-attachments/assets/4a56f4e1-8fb4-4137-acc6-ac30cade78f1" />
 </details>
-
-Supported variables are `COOKIE` and `COOKIE1` until `COOKIE5`. The same is for `GAMES`. That's up to 6 accounts!
 
 ## Discord Webhook
 
